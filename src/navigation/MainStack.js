@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import {createStackNavigator} from '@react-navigation/stack';
 import Tabs from './Tabs';
-import SplashScreen from '@Screen/SplashScreen';
 import NewsDetails from '@Screen/NewsDetails';
 import CategoryList from '@Screen/CategoryList';
 import About from '@Screen/About';
-import LoadingScreen from '../screens/Loading';
 import LoginScreen from '../screens/Login';
 import RegisterScreen from '../screens/Register';
 import { useSelector, useDispatch, } from 'react-redux';
 import Onboarding from '../screens/Onboarding/Onboarding';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const AuthStack = createStackNavigator();
 const AuthStackScreen = () => {
@@ -35,14 +34,19 @@ const MainStack = () => {
 
     const checkOnboarding = async () => {
         try {
+            console.log("asdsad")
             const value = await AsyncStorage.getItem('@viewedOnboarding')
+            console.log("------------------")
+            console.log("CHECK ONBOARDİNG")
             console.log(value)
             console.log(onboarded)
+            console.log("------------")
             if (value == 'true') {
                 console.log("evet girdim");
                 setOnboarded(true)
             }
         } catch (err) {
+            console.log(err)
         } finally {
         }
     }
@@ -54,7 +58,7 @@ const MainStack = () => {
 
     return (
         <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={
-            onboarded === true ? 'AuthStackScreen' : 'Onboarding'
+            onboarded == true ? 'Onboarding' : 'AuthStackScreen'
         }>
             <Stack.Screen name="Onboarding" component={Onboarding} />
             <Stack.Screen name="Tab" component={Tabs} />

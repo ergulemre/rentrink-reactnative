@@ -34,7 +34,6 @@ export default Onboarding = () => {
         else {
             try {
                 AsyncStorage.setItem('@viewedOnboarding', 'true');
-                dispatch(confirmOnboarding());
                 navigation.navigate('AuthStackScreen')
             } catch (error) {
                 console.log('Error @setItem: ', error);

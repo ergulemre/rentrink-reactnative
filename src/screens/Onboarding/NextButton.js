@@ -1,6 +1,7 @@
 import { StyleSheet, View,Text, TouchableOpacity, Animated } from 'react-native'
 import React, {useRef, useEffect } from 'react'
 import Svg, {G, Circle} from 'react-native-svg';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 export default NextButton = ({percentage, scrollTo}) => {
 
@@ -54,7 +55,12 @@ export default NextButton = ({percentage, scrollTo}) => {
             </G>
         </Svg>
         <TouchableOpacity onPress={scrollTo} style = {styles.button} activeOpacity = {0.6} >
-        <Text>%</Text>   
+        <MaterialIcons
+              name="arrow-forward"
+              size={20}
+              color="#666"
+              style={{}}
+            />
         </TouchableOpacity>
     </View>
   )

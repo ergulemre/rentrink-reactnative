@@ -10,7 +10,6 @@ import {
 
 import DatePicker from 'react-native-date-picker';
 
-import InputField from './InputField';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -19,7 +18,8 @@ import RegistrationSVG from '../assets/images/misc/registration.svg';
 import GoogleSVG from '../assets/images/misc/google.svg';
 import FacebookSVG from '../assets/images/misc/facebook.svg';
 import TwitterSVG from '../assets/images/misc/twitter.svg';
-import CustomButton from './CustomButton';
+import CustomButton from '../../components/CustomButton';
+import InputField from '../../components/InputField';
 
 export default RegisterScreen = ({navigation}) => {
   const [date, setDate] = useState(new Date());
