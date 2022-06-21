@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import onboardingSlice from './onboardingSlice';
+import onboardingSlice from './slices/onboardingSlice';
+import authSlice from './slices/authSlice';
 
-export default configureStore({
+export const store =  configureStore({
   reducer: {
-    onboarding: onboardingSlice
+    onboarding: onboardingSlice,
+    userAuth: authSlice
   }
 })
+
+export default store;

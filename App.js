@@ -1,13 +1,16 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import RootNavigation from '@Navigation';
-
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
 
 const App = () => {
   return (
-    <View style={styles.root}>
-      <RootNavigation/>
-    </View>
+    <>
+      <Provider store={store}>
+        <RootNavigation/>
+      </Provider>
+    </>
   )
 }
 

@@ -8,9 +8,7 @@ import {
   Image,
   SafeAreaView
 } from "react-native";
-
-import LoginSVG from '../assets/images/misc/login.svg';
-
+import { useDispatch } from 'react-redux'
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -18,11 +16,29 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import GoogleSVG from '../assets/images/misc/google.svg';
 import FacebookSVG from '../assets/images/misc/facebook.svg';
 import TwitterSVG from '../assets/images/misc/twitter.svg';
+import LoginSVG from '../assets/images/misc/login.svg';
 
 import CustomButton from '../../components/CustomButton';
 import InputField from '../../components/InputField';
 
+import { setSignIn } from '../../redux/slices/authSlice';
+
 const LoginScreen = ({navigation}) => {
+
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    const user = {
+        isLoggedIn: true,
+        email: 'jdoe@test.com',
+        userName: 'johnDoe'
+    };
+    console.log("LOGIN PROCESS STARTED")
+
+    dispatch(setSignIn(user));
+  }
+
+
   return (
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
       <View style={{paddingHorizontal: 25}}>
@@ -73,7 +89,7 @@ const LoginScreen = ({navigation}) => {
           fieldButtonFunction={() => {}}
         />
         
-        <CustomButton label={"Login"} onPress={() => {}} />
+        <CustomButton label={"Login"} onPress={handleLogin} />
 
         <Text style={{textAlign: 'center', color: '#666', marginBottom: 30}}>
           Or, login with ...

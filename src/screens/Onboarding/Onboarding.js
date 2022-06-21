@@ -7,7 +7,6 @@ import NextButton from './NextButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector, useDispatch, } from 'react-redux';
-import { confirmOnboarding } from '../../redux/onboardingSlice';
 
 export default Onboarding = () => {
 
@@ -33,8 +32,8 @@ export default Onboarding = () => {
         } 
         else {
             try {
-                AsyncStorage.setItem('@viewedOnboarding', 'true');
-                navigation.navigate('AuthStackScreen')
+                AsyncStorage.setItem('@viewedOnboarding', 'false');
+                navigation.navigate('Login')
             } catch (error) {
                 console.log('Error @setItem: ', error);
             }
