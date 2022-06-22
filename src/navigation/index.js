@@ -11,7 +11,7 @@ const {MyDarkTheme, MyLightTheme, BASE_URL} = Constant;
 
 const RootNavigation = () => {
 
-    const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
 
     return (
         <NavigationContainer>

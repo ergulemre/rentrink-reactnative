@@ -10,7 +10,7 @@ const AuthStackScreen = () => {
   
   const [onboarded, setOnboarded] = React.useState(true)
 
-  const checkOnboarding = () => {
+  const checkOnboarding = async () => {
     try {
         const value = await AsyncStorage.getItem('@viewedOnboarding')
         if (value == 'false') {

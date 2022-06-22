@@ -34,8 +34,8 @@ const LoginScreen = ({navigation}) => {
         userName: 'johnDoe'
     };
     console.log("LOGIN PROCESS STARTED")
-
     dispatch(setSignIn(user));
+
   }
 
 

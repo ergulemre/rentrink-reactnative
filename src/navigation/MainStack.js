@@ -9,12 +9,15 @@ import Home from '../screens/Home';
 
 const MainStack = () => {
     const Stack = createStackNavigator();
+    Stack.Navigator.defaultProps = {
+        headerMode: 'none',
+    };
 
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen name="Tab" component={Tabs} />
             <Stack.Screen name="AuthStackScreen" component={AuthStackScreen} />
-            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Home" component={Home} options={{navigationOptions: { headerShown: false}}} />
             <Stack.Screen name="NewsDetails" component={NewsDetails} />
             <Stack.Screen name="CategoryList" component={CategoryList} />
             <Stack.Screen name="About" component={About} />
